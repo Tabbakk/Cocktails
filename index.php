@@ -2,11 +2,16 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link href="css/general.css" rel="stylesheet">
+    <title>Main</title>
   </head>
 
   <body>
-    Body
+    <div class="main">
+    	<ul>
+    		<li><a href="new_user.php">Create User</a></li>
+    	</ul>
+    </div>
   </body>
 
 </html> 
