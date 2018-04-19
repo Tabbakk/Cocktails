@@ -1,0 +1,74 @@
+<?php
+
+
+######### Script for insert in DB #########
+/*
+	# DBMS connection
+	// creating MySQLi object
+	$mysqli = new mysqli("localhost", "root", "", "cocktails");
+
+	// verifica su eventuali errori di connessione
+	if ($mysqli->connect_errno) {
+		echo "Connessione fallita: ". $mysqli->connect_error . ".";
+		exit();
+	}
+
+############## USERS ################
+	$query = "insert into users (username, password, email) values (?,?,?)"; //insert users
+
+	$users = array();
+	$pass = array();
+	$email = array();
+	for ($i = 0; $i <= 4; $i++){
+		$users[$i] = "user".$i;
+		$pass[$i] = "pass".$i;
+		$email[$i] = "mail".$i."@mail.com";
+	}
+	
+//	'sss', $users[$i], $pass[$i], $email[$i]					//bind_param contents
+
+############# BOTTLES ################
+	$query = "insert into bottles (user_id, name, ml, cost) values (?,?,?,?)"; //insert bottle
+	
+	$bottleName = "";
+	$ml = 0;
+	$cost = 0;
+	
+//	'isid', $_SESSION['user_id'], $bottleName, $ml, $cost		//bind_param contents
+	
+############# COCKTAIL ##############
+	$query = "insert into cocktails (user_id, name) values (?,?)"; //insert cocktail
+
+	$cocktailName = "";
+	
+//	'is', $_SESSION['user_id'], $cocktailName					//bind_param contents
+	
+############## RECIPE ###############	
+	$query = "insert into recipes (cocktail_id, bottle_id, ml) values (?,?,?)"; //insert recipe
+
+	$cID = 0;
+	$bID = 0;
+	$ml = 0;
+	
+//	'iii', $cID, $bID, $ml										//bind_param contents
+	
+#############INVENTORY#############
+	$query = "insert into bottle_inventory (bottle_id, quantity) values (?,?)"; //insert inventory
+
+	$bID = 0;
+	$quantity = 0;
+	
+//	'ii', $bID, $quantity										//bind_param contents
+	
+
+############# multiple query execution ##################
+	for ($i = 0; $i < count($); $i++){
+		$stmt = $mysqli->prepare($query);
+		$stmt->bind_param();
+		$stmt->execute() or die('Errore DB: '.$mysqli->error);		
+	}
+	
+	$mysqli->close();
+*/	
+
+?>
