@@ -18,7 +18,7 @@
 			<br /><br /><br />
 		</div>
 
-		<form method="post" action="/cgi-bin/show_params.cgi">
+		<form method="post" action="#">
 
 			<span id="writeZone"></span>
 
@@ -30,7 +30,7 @@
 	</body>
 	
 	<footer>
-		<script src="js/dynamicForm.js"></script> 
+		<script src="../js/dynamicForm.js"></script> 
 	</footer>
 	
 </html> 
