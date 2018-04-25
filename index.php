@@ -2,36 +2,50 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link href="css/Bootstrap.css" rel="stylesheet">
     <link href="css/general.css" rel="stylesheet">
     <title>Main</title>
   </head>
 
   <body>
+  
     <div class="main">
-		<div class="image"></div>
+
+		<img class="mainIMG" src="imgs/cocktails.jpg" />
 		<div class="login" id="login" style="display:none;">
-			<form method="post" action="#">
-				Username: <input type="text" name="username" placeholder="username" /></br>
-				Password: <input type="text" name="password" placeholder="password" /></br>
-				<input type="submit" value="Login" />
-				<input type="button" id="cancel" onclick="hide_login();" value="Cancel" />
-			</form>			
+			<form class="form-signin">
+				<h2 class="form-signin-heading">Sign in</h2>
+				<label for="username" class="sr-only">Username</label>
+				<input type="username" id="username" class="form-control" placeholder="Username" required autofocus>
+				<label for="password" class="sr-only">Password</label>
+				<input type="password" id="password" class="form-control" placeholder="Password" required>
+				<div class="subButtons">
+					<button class="btn btn-lg btn-primary" type="submit">Sign in</button>
+					<button class="btn btn-lg btn-danger" type="button" onclick="hide_login();">Cancel</button>
+				</div>
+			</form>
 		</div>
-		<div class="center" >
-			<input id="center" type="button" onclick="show_login();" value="Login" />
+
+		<div  id="initial">
+			<button class="btn btn-lg btn-primary" type="button" onclick="show_login();">Login</button>
 		</div>
-	</div>
+			
+    </div> <!-- /container -->  
+  
+	<script src="js/jQuery.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/Bootstrap.js"></script>
   </body>
   
   <footer>
 	<script>
 		function show_login(){
 			document.getElementById('login').setAttribute('style','display:inline;');
-			document.getElementById('center').setAttribute('style','display:none;');
+			document.getElementById('initial').setAttribute('style','display:none;');
 		}
 		function hide_login() {
 			document.getElementById('login').setAttribute('style','display:none;');
-			document.getElementById('center').setAttribute('style','display:inline;');
+			document.getElementById('initial').setAttribute('style','display:inline;');
 		}
 	</script>
   </footer>

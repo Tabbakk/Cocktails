@@ -1,23 +1,25 @@
 .main {
-	width: 640px;
+	width: 400px;
 	height: 480px;
 	padding: 20px;
 	margin: 0px auto;
-	border: 1px solid black;
-}
-
-.main .image {
-	width: 500px;
-	height: 200px;
-	border: 1px solid black;
-	margin: 20px auto;
-}
-
-.main .center {
-	margin-top:30px;
-	text-align: center;
-}
-
-.main .login {
 	text-align:center;
+}
+
+.main .mainIMG {
+	width: 360px;
+}
+
+.main .login .subButtons {
+	margin: 10px auto;
+}
+
+.main .btn {
+	width: 150px;
+	margin: 10px auto;
+}
+
+.main .form-control {
+	width: 300px;
+	margin: 10px auto;
 }
