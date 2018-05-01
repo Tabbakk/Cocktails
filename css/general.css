@@ -1,25 +1,37 @@
-.main {
-	width: 400px;
-	height: 480px;
+.main, .home {
 	padding: 20px;
 	margin: 0px auto;
 	text-align:center;
 }
 
-.main .mainIMG {
-	width: 360px;
-}
 
 .main .login .subButtons {
 	margin: 10px auto;
 }
 
-.main .btn {
+.main .btn{
 	width: 150px;
 	margin: 10px auto;
+}
+
+.home .btn {
+	width: 100%;
+	margin-top: 10px;
+	padding: .875rem 0;
+}
+
+.home .col {
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .main .form-control {
 	width: 300px;
 	margin: 10px auto;
+}
+
+.main .noLogin {
+	text-align: center;
+	font-weight: bolder;
+	color: red;
 }
