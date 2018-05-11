@@ -1,4 +1,5 @@
 <?php
+	if(session_status() !== PHP_SESSION_ACTIVE) {session_start();}
 	include "db_init.php";
 	
 	# DBMS connection
@@ -7,7 +8,7 @@
 
 	// verifica su eventuali errori di connessione
 	if ($mysqli->connect_errno) {
-		echo "Connessione fallita: ". $mysqli->connect_error . ".";
+		echo "Failed to connect to DB: ". $mysqli->connect_error . ".";
 		exit();
 	}
 

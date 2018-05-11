@@ -16,17 +16,19 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="col-sm-3 col-3"></div>
-					<button class="btn btn-lg btn-custom1 col-sm-3 col-6" type="button" onclick="document.location.href='recipes.php'">Recipes</button>
+					<button class="btn btn-lg btn-custom1 col-sm-3 col-6" type="button" onclick="document.location.href='inventory_list.php'">View List</button>
 					<div class="d-sm-none col-3"></div>
 		
 					<div class="d-sm-none col-3"></div>
-					<button class="btn btn-lg btn-custom1 col-sm-3 col-6" type="button" onclick="document.location.href='inventory.php'">Inventory</button>
+					<button class="btn btn-lg btn-custom1 col-sm-3 col-6" type="button" onclick="document.location.href='add_bottle.php'">Add Bottle</button>
 					<div class="col-sm-3 col-3"></div>
 
-					<div class="col-sm-5 col-3"></div>
-					<button class="btn btn-lg btn-custom2 col-sm-2 col-6" type="button" onclick="document.location.href='includes/user_logout.php'">Logout</button>
-					<div class="col-sm-5 col-3"></div>					
+
+					<div class="col-md-5 col-3"></div>
+					<button class="btn btn-lg btn-custom2 col-md-2 col-6" type="button" onclick="document.location.href='main.php'">Back</button>
+					<div class="col-md-5 col-3"></div>					
 				</div>
+
 			</div>	
 		</div> <!-- /container -->
 		

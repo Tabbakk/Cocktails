@@ -1,9 +1,13 @@
-.main, .home {
+.main{
 	padding: 20px;
 	margin: 0px auto;
 	text-align:center;
 }
 
+.mainIMG.img-fluid{
+	max-width:50%;
+	height:auto;
+}
 
 .main .login .subButtons {
 	margin: 10px auto;
@@ -14,24 +18,105 @@
 	margin: 10px auto;
 }
 
-.home .btn {
-	width: 100%;
-	margin-top: 10px;
-	padding: .875rem 0;
-}
-
-.home .col {
-	padding-left: 0;
-	padding-right: 0;
-}
-
-.main .form-control {
-	width: 300px;
+.login .form-control, .addBottleForm .input-group {
+	max-width: 300px;
 	margin: 10px auto;
 }
 
 .main .noLogin {
 	text-align: center;
-	font-weight: bolder;
-	color: red;
 }
+
+.container {
+	max-width:1000px;
+	min-width:350px;
+}
+
+.addBottleForm .form-control {
+	text-align: center;
+}
+
+.addBottleForm #smbottleName, .addBottleForm #smbottleSize, .addBottleForm #smbottlePrice {
+	margin-bottom:20px;
+	margin-top:-5px;
+}
+
+.addBottleForm .errorMessage {
+	margin-bottom:-5px;
+}
+
+.deleteBottleForm td.aligned {
+	vertical-align:middle;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+/*######################################### Custom Buttons #########################################*/
+.btn-custom1{
+	color:#fff;
+	background-color:#9932CC;
+	border-color:#9932CC
+}
+.btn-custom1:hover{
+	color:#fff;
+	background-color:#4B0082;
+	border-color:#9370DB
+}
+.btn-custom1.focus,.btn-custom1:focus{
+	box-shadow:0 0 0 .2rem rgba(147,112,219,.5)
+}
+.btn-custom1.disabled,.btn-custom1:disabled{
+	color:#fff;
+	background-color:#9932CC;
+	border-color:#9932CC
+}
+.btn-custom1:not(:disabled):not(.disabled).active,.btn-custom1:not(:disabled):not(.disabled):active,.show>.btn-custom1.dropdown-toggle{
+	color:#fff;
+	background-color:#9370DB;
+	border-color:#9370DB;
+}
+.btn-custom1:not(:disabled):not(.disabled).active:focus,.btn-custom1:not(:disabled):not(.disabled):active:focus,.show>.btn-custom1.dropdown-toggle:focus{
+	box-shadow:0 0 0 .2rem rgba(147,112,219,.5)
+}
+
+.form-control:focus{
+	border-color:#9370DB;
+	box-shadow:0 0 0 .2rem rgba(147,112,219,.5)
+}
+
+.btn-custom2{
+	color:#fff;
+	background-color:#FFA500;
+	border-color:#FFA500
+}
+.btn-custom2:hover{
+	color:#fff;
+	background-color:#FF8C00;
+	border-color:#FFD700
+}
+.btn-custom2.focus,.btn-custom2:focus{
+	box-shadow:0 0 0 .2rem rgba(255,215,0,.5)
+}
+.btn-custom2.disabled,.btn-custom2:disabled{
+	color:#fff;
+	background-color:#FFCF9E;
+	border-color:#FFCF9E
+}
+.btn-custom2:not(:disabled):not(.disabled).active,.btn-custom2:not(:disabled):not(.disabled):active,.show>.btn-custom2.dropdown-toggle{
+	color:#fff;
+	background-color:#FFD700;
+	border-color:#FFD700;
+}
+.btn-custom2:not(:disabled):not(.disabled).active:focus,.btn-custom2:not(:disabled):not(.disabled):active:focus,.show>.btn-custom2.dropdown-toggle:focus{
+	box-shadow:0 0 0 .2rem rgba(255,215,0,.5)
+}
+
+/*##########################################################################################################*/
