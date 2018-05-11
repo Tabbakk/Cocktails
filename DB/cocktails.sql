@@ -126,6 +126,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(30) DEFAULT NULL,
   `password` varchar(64) DEFAULT NULL,
   `email` varchar(64) DEFAULT NULL,
+  `auth` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
