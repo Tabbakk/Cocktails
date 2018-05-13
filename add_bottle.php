@@ -8,6 +8,7 @@
 		<meta charset="UTF-8">
 		<link href="css/Bootstrap.css" rel="stylesheet">
 		<link href="css/general.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Cocktailulator</title>
 		
 		<script>

@@ -1,7 +1,33 @@
+@viewport {
+  width: device-width ;
+  zoom: 1.0 ;
+} 
+
+@-ms-viewport {
+  width: device-width ;
+} 
+
 .main{
 	padding: 20px;
 	margin: 0px auto;
 	text-align:center;
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 .mainIMG.img-fluid{
@@ -18,7 +44,7 @@
 	margin: 10px auto;
 }
 
-.login .form-control, .addBottleForm .input-group {
+.login .form-control, .addBottleForm .input-group{
 	max-width: 300px;
 	margin: 10px auto;
 }
@@ -32,7 +58,7 @@
 	min-width:350px;
 }
 
-.addBottleForm .form-control {
+.addBottleForm .form-control, .modBottleForm .form-control {
 	text-align: center;
 }
 
@@ -47,6 +73,14 @@
 
 .deleteBottleForm td.aligned {
 	vertical-align:middle;
+}
+
+#bottlesList .bottomElem{
+	border-bottom:none;
+}
+
+.modModal {
+	min-width:350px;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -75,8 +109,8 @@ input[type=number] {
 }
 .btn-custom1.disabled,.btn-custom1:disabled{
 	color:#fff;
-	background-color:#9932CC;
-	border-color:#9932CC
+	background-color:#D8BFD8;
+	border-color:#D8BFD8;
 }
 .btn-custom1:not(:disabled):not(.disabled).active,.btn-custom1:not(:disabled):not(.disabled):active,.show>.btn-custom1.dropdown-toggle{
 	color:#fff;

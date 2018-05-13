@@ -34,12 +34,35 @@
 		$button2 = 'Inventory';
 	}
 	
+	if($from == 'inventory_list_empty'){
+		$format="";
+		$button1="Add Bottle";
+		$btn1dest='add_bottle.php';
+		$btn2dest = 'inventory.php';
+		$button2 = 'Back';
+	}
+	
+	if($from == 'mod_bottle'){
+		if($err==0){
+			$format="";
+		}
+		if($err==1){
+			$format=" text-danger";
+		}
+		$button1="Return to List";
+		$btn1dest='inventory_list.php';
+		$btn2dest = 'inventory.php';
+		$button2 = 'Inventory';
+	}
+	
+	
 ?>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<link href="css/Bootstrap.css" rel="stylesheet">
 		<link href="css/general.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Cocktailulator</title>
 	</head>
 	<body>
