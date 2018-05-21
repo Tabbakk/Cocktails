@@ -80,7 +80,7 @@
 				}
 			}
 			window.onload = function(){
-				var i, rowID, checkID;
+				var i;
 				var mytable = document.getElementById('bottlesList');
 				var myrows = mytable.getElementsByTagName("tr");
 				var lastrow = myrows[myrows.length -1];
@@ -112,6 +112,21 @@
 				document.getElementById('bottle').value = document.getElementById(nID).innerHTML;
 				document.getElementById('price').value = document.getElementById(pID).innerHTML.replace('$ ','');
 				document.getElementById('size').value = document.getElementById(sID).innerHTML.replace(' ml','');
+			}
+			
+			function populateDelModal(){
+				var ul = document.getElementById("delModalList");
+				var li;
+				for (var i=0; i < numBottles; i++){
+					if(document.getElementById("check"+i).checked){
+						li = document.createElement("li");
+						small = document.createElement("small");
+						small.className="text-muted smallList";
+						small.appendChild(document.createTextNode(document.getElementById("name"+i).innerHTML));
+						li.appendChild(small);
+						ul.appendChild(li);
+					}
+				}
 			}
 			
 			
@@ -168,7 +183,7 @@
 								<tr>
 								  <th></th>
 								  <th scope="col">Bottle</th>
-								  <th scope="col" class="table-bordered">Size</th>
+								  <th scope="col" class="table-bordered">Size (ml)</th>
 								  <th scope="col">Price</th>
 								</tr>
 							</thead>
@@ -180,8 +195,8 @@
 								<tr>
 									<td id="td<?php echo $i; ?>"><input style="visibility:hidden;" class="form-check-input ml-1" type="checkbox" value="<?php echo $b['id']; ?>" id="check<?php echo $i; ?>" name="bottles[]" onclick="verifyActive();" ></td>
 									<td class="aligned" id="name<?php echo $i ?>" ><?php echo stripslashes($b['name']); ?></td>
-									<td class="table-bordered aligned" id="size<?php echo $i ?>" ><?php echo $b['ml']; ?> ml</td>
-									<td class="aligned" id="price<?php echo $i ?>">$ <?php echo $b['price']; ?></td>
+									<td class="table-bordered aligned" id="size<?php echo $i ?>" ><?php echo $b['ml']; ?></td>
+									<td class="aligned" id="price<?php echo $i ?>"><?php echo $b['price']; ?></td>
 								</tr>
 
 					<?php
@@ -197,7 +212,7 @@
 						<button class="btn btn-lg btn-custom1 col-sm-3 col-6" id="modBtn" type="button" disabled="true" data-toggle="modal" data-target="#modModal" onclick="populateModModal();" >Modify</button>
 						<div class="d-sm-none col-3"></div>
 						<div class="d-sm-none col-3"></div>
-						<button class="btn btn-lg btn-custom1 col-sm-3 col-6" id="deleteBtn" type="button" disabled="true" data-toggle="modal" data-target="#confirmDelete" >Delete</button>
+						<button class="btn btn-lg btn-custom1 col-sm-3 col-6" id="deleteBtn" type="button" disabled="true" data-toggle="modal" data-target="#confirmDelete" onclick="populateDelModal();" >Delete</button>
 						<div class="col-sm-3 col-3"></div>
 					</div>
 
@@ -224,11 +239,13 @@
 		
 
 		<!-- Delete Modal -->
-		<div class="modal fade delModal" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="confirmDelete" aria-hidden="true">
+		<div class="modal fade delModal noselect" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="confirmDelete" aria-hidden="true">
 		  <div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 			  <div class="modal-body">
-				Are you sure you want to delete the selected bottles?
+				Are you sure you want to delete the following bottles?
+				<ul id="delModalList" class="delModalList">
+				</ul>
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-lg btn-custom2" data-dismiss="modal">Cancel</button>
@@ -239,7 +256,7 @@
 		</div>
 
 		<!-- Mod Modal -->
-		<div class="modal fade modModal" id="modModal" tabindex="-1" role="dialog" aria-labelledby="modModal" aria-hidden="true">
+		<div class="modal fade modModal noselect" id="modModal" tabindex="-1" role="dialog" aria-labelledby="modModal" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -255,32 +272,60 @@
 									<div class="row">
 										
 										<input type="hidden" id="bID" name="bID" value="">
-										<div class="errorMessage text-danger col-12 d-block text-center" id="errorName"></div>							
+
+										<div class="col-4"></div>
+										<div class="errorMessage text-danger col-8 d-block text-center" id="errorName"></div>							
 										<label for="bottle" class="sr-only">Bottle Name</label>
-										<div class="input-group col-12">
-											<input type="text" id="bottle" name="bottle" class="form-control" placeholder="Name of the bottle" required>
-										</div>
-										<small id="smbottleName" class="form-text text-muted col-12 d-block text-center mb-3">Bottle Name</small>
-
-										<div class="errorMessage text-danger col-12 d-block text-center" id="errorPrice"></div>							
-										<label for="price" class="sr-only">Price</label>	
-										<div class="input-group col-12">
-											<input type="number" name="price" class="form-control currency" min="0.01" step="0.01" data-number-stepfactor="100" id="price" placeholder="0.00" onblur="evenNumber(2,'p');" required>
-											<div class="input-group-append">
-												<span class="input-group-text" id="basic-addon">$</span>
+										<div class="col-12 mb-3">
+											<div class="row">
+												<div class="col-4 d-inline text-center">
+													<small id="smbottleName" class="form-text text-muted my-2">Name</small>
+												</div>
+												<div class="col-8 d-inline">
+													<div class="input-group">
+														<input type="text" id="bottle" name="bottle" class="form-control" placeholder="Name of the bottle" required>
+													</div>
+												</div>
 											</div>
 										</div>
-										<small id="smbottleSize" class="form-text text-muted col-12 d-block text-center mb-3">Bottle Price</small>
 
-										<div class="errorMessage text-danger col-12 d-block text-center" id="errorSize"></div>							
+										<div class="col-4"></div>
+										<div class="errorMessage text-danger col-8 d-block text-center" id="errorPrice"></div>							
+										<label for="price" class="sr-only">Price</label>
+										<div class="col-12 mb-3">
+											<div class="row">
+												<div class="col-4 d-inline text-center">
+													<small id="smbottleSize" class="form-text text-muted my-2">Price</small>
+												</div>
+												<div class="col-8 d-inline">
+													<div class="input-group">
+														<div class="input-group-prepend">
+															<span class="input-group-text" id="basic-addon" style="padding-left:20px;">$</span>
+														</div>
+														<input type="number" name="price" class="form-control currency" min="0.01" step="0.01" data-number-stepfactor="100" id="price" placeholder="0.00" onblur="evenNumber(2,'p');" required>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-4"></div>
+										<div class="errorMessage text-danger col-8 d-block text-center" id="errorSize"></div>							
 										<label for="size" class="sr-only">Size (ml)</label>
-										<div class="input-group col-12">
-											<input type="number" id="size" name="size" class="form-control" placeholder="Size (ml)" min="1" onblur="evenNumber(0,'s');" required>
-											<div class="input-group-append">
-												<span class="input-group-text" id="basic-addon">ml</span>
+										<div class="col-12 mb-3">
+											<div class="row">
+												<div class="col-4 d-inline text-center">
+													<small id="smbottlePrice" class="form-text text-muted my-2">Size</small>
+												</div>
+												<div class="col-8 d-inline">
+													<div class="input-group">
+														<div class="input-group-prepend">
+															<span class="input-group-text" id="basic-addon">ml</span>
+														</div>
+														<input type="number" id="size" name="size" class="form-control" placeholder="Size (ml)" min="1" onblur="evenNumber(0,'s');" required>
+													</div>
+												</div>
 											</div>
 										</div>
-										<small id="smbottlePrice" class="form-text text-muted col-12 d-block text-center mb-3">Bottle Size (ml)</small>
 
 									</div>
 									<input type="submit" style="display:none"/>
@@ -288,11 +333,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="modal-footer col-12">
-						<div class="mx-auto">
+					<div class="modal-footer">
 							<button class="btn btn-lg btn-custom2" type="button" data-dismiss="modal">Cancel</button>
 							<button class="btn btn-lg btn-custom1" type="button" onclick="submitForm();">Modify</button>
-						</div>
 					</div>
 				</div>
 			</div>

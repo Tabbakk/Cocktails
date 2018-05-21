@@ -39,12 +39,18 @@
 	margin: 10px auto;
 }
 
-.main .btn{
+.main .btn {
 	width: 150px;
 	margin: 10px auto;
 }
 
-.login .form-control, .addBottleForm .input-group{
+.modal .btn {
+	width:100px;
+	margin-bottom: 10px;
+
+}
+
+.login .form-control, .addBottleForm .input-group, .addRecipeForm .input-group{
 	max-width: 300px;
 	margin: 10px auto;
 }
@@ -58,16 +64,17 @@
 	min-width:350px;
 }
 
-.addBottleForm .form-control, .modBottleForm .form-control {
+.addBottleForm .form-control, .modBottleForm .form-control, .addRecipeForm .form-control {
 	text-align: center;
 }
 
-.addBottleForm #smbottleName, .addBottleForm #smbottleSize, .addBottleForm #smbottlePrice {
+
+.addBottleForm #smbottleName, .addBottleForm #smbottleSize, .addBottleForm #smbottlePrice, .addRecipeForm #recipeName, .addRecipeForm .recipeBottle, .addRecipeForm .recipeAmount {
 	margin-bottom:20px;
 	margin-top:-5px;
 }
 
-.addBottleForm .errorMessage {
+.addBottleForm .errorMessage, .addRecipeForm .errorMessage {
 	margin-bottom:-5px;
 }
 
@@ -75,12 +82,35 @@
 	vertical-align:middle;
 }
 
+.delModalList, .recipeModalList {
+	list-style:none;
+	margin-top:20px;
+}
+
+.modBottleForm .input-group-text {
+	width:50px; 
+}
+
+.modBottleForm .errorMessage, .modBottleForm .form-control#bottle {
+	padding-left:50px;
+}
+
 #bottlesList .bottomElem{
 	border-bottom:none;
 }
 
-.modModal {
-	min-width:350px;
+
+.modModal, .viewRecipe{
+}
+
+.modModal .modal-footer .mx-auto {
+	margin-top:0;
+	margin-bottom:0;
+	padding:0;
+}
+
+.btn-group.addRemove button {
+	width:40px;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -94,7 +124,7 @@ input[type=number] {
 }
 
 /*######################################### Custom Buttons #########################################*/
-.btn-custom1{
+.btn-custom1, .btn-custom1{
 	color:#fff;
 	background-color:#9932CC;
 	border-color:#9932CC
@@ -133,7 +163,7 @@ input[type=number] {
 }
 .btn-custom2:hover{
 	color:#fff;
-	background-color:#FF8C00;
+	background-color:#FF4F00;
 	border-color:#FFD700
 }
 .btn-custom2.focus,.btn-custom2:focus{
@@ -151,6 +181,40 @@ input[type=number] {
 }
 .btn-custom2:not(:disabled):not(.disabled).active:focus,.btn-custom2:not(:disabled):not(.disabled):active:focus,.show>.btn-custom2.dropdown-toggle:focus{
 	box-shadow:0 0 0 .2rem rgba(255,215,0,.5)
+}
+
+
+
+.btn-mini1, .btn-mini1, .btn-mini1:hover, .btn-mini1:not(:disabled):not(.disabled).active,.btn-mini1:not(:disabled):not(.disabled):active,.show>.btn-mini1.dropdown-toggle {
+	color:#fff;
+	background-color:#9932CC;
+	border-color:#9932CC;
+	border-right:none;
+}
+.btn-mini1.focus,.btn-mini1:focus,.btn-mini1:not(:disabled):not(.disabled).active:focus,.btn-mini1:not(:disabled):not(.disabled):active:focus,.show>.btn-mini1.dropdown-toggle:focus{
+	box-shadow:none;
+}
+.btn-mini1.disabled,.btn-mini1:disabled{
+	color:#fff;
+	background-color:#D8BFD8;
+	border-color:#D8BFD8;
+	border-right:none;
+}
+
+.btn-mini2, .btn-mini2:hover, .btn-mini2:not(:disabled):not(.disabled).active,.btn-mini2:not(:disabled):not(.disabled):active,.show>.btn-mini2.dropdown-toggle{
+	color:#fff;
+	background-color:#FFA500;
+	border-color:#FFA500;
+	border-left:none;
+}
+.btn-mini2.focus,.btn-mini2:focus, .btn-mini2:not(:disabled):not(.disabled).active:focus,.btn-mini2:not(:disabled):not(.disabled):active:focus,.show>.btn-mini2.dropdown-toggle:focus{
+	box-shadow: none;
+}
+.btn-mini2.disabled,.btn-mini2:disabled{
+	color:#fff;
+	background-color:#FFCF9E;
+	border-color:#FFCF9E;
+	border-left:none;
 }
 
 /*##########################################################################################################*/

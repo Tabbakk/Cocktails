@@ -3,20 +3,43 @@
 		<meta charset="UTF-8">
 		<title>Title</title>
 		<script>
+			function setChildNodes(newFields) {
+				var newField;
+				if(newFields.hasChildNodes()){
+					var newField = newFields.childNodes;
+					for (var i=0;i<newField.length;i++){
+						setChildNodes(newField[i]);
+					}					
+				}
+				newField = newFields.childNodes;
+				var theName, theID;
+				for (var i=0;i<newField.length;i++) {
+					console.log(newField[i]);
+					theName = newField[i].name;
+					if (theName){
+						newField[i].name = theName + counter;
+					}
+					theID = newField[i].id;
+					if (theID){
+						newField[i].id = theID + counter;
+					}
+				}
+			}
+		
 			function moreFields() {
-			  counter++;
-			  document.getElementById('ingredientTitle').innerHTML = "Ingredient "+counter+": ";				
-			  var newFields = document.getElementById('template').cloneNode(true);
-			  newFields.id = 'block'+counter;
-			  newFields.style.display = 'block';
-			  var newField = newFields.childNodes;
-			  for (var i=0;i<newField.length;i++) {
-				var theName = newField[i].name
-				if (theName)
-				  newField[i].name = theName + counter;
-			  }
-			  var insertHere = document.getElementById('writeZone');
-			  insertHere.parentNode.insertBefore(newFields,insertHere);				
+				counter++;
+				document.getElementById('ingredientTitle').innerHTML = "Ingredient "+counter+": ";				
+				var newFields = document.getElementById('template').cloneNode(true);
+				newFields.id = 'block'+counter;
+				newFields.style.display = 'block';
+				if(newFields.hasChildNodes()){				
+					var newField = newFields.childNodes;
+					for (var i=0;i<newField.length;i++){
+						setChildNodes(newField[i]);
+					}					
+				}
+				var insertHere = document.getElementById('writeZone');
+				insertHere.parentNode.insertBefore(newFields,insertHere);				
 			}
 
 			function firstAdd() {
@@ -38,15 +61,21 @@
 	</head>
 	<body>
 		<div id="template" style="display: none">
+			<div class ="">
 			<div id="ingredientTitle"></div><br />
 			Ingredient:
+			<div class="asd">
 			<select name="bottle">
 				<option>Bottle</option>
 				<option value=""></option>
 			</select>
+			</div>
 			<br /><br />
+			<div class="qr">
 			Quantity (ml): <input type="text" name="quantity" placeholder="quantity in ml" />
+			</div>
 			<br /><br /><br />
+			</div>
 		</div>
 
 		<form method="post" action="#">
@@ -63,7 +92,9 @@
 	<footer>
 		<script>
 			var counter = 0;
-			window.onload = moreFields;
+			window.onload = function(e){
+				moreFields();
+			}
 			document.getElementById('moreFields').onclick = firstAdd;		
 		</script>
 	</footer>

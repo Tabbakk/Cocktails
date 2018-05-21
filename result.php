@@ -21,6 +21,20 @@
 		$button2 = 'Inventory';
 	}
 	
+	if($from == 'insert_recipe'){
+		if($err==0){
+			$format="";
+			$button1="Add Another";
+		}
+		if($err==1){
+			$format=" text-danger";
+			$button1="Try Again";		
+		}
+		$btn1dest = 'add_recipe.php';
+		$btn2dest = 'recipes.php';
+		$button2 = 'Recipes';		
+	}
+	
 	if($from == 'delete_bottle'){
 		if($err==0){
 			$format="";
@@ -33,6 +47,19 @@
 		$btn2dest = 'inventory.php';
 		$button2 = 'Inventory';
 	}
+
+	if($from == 'delete_recipe'){
+		if($err==0){
+			$format="";
+		}
+		if($err==1){
+			$format=" text-danger";
+		}
+		$button1="Return to List";
+		$btn1dest='recipe_list.php';
+		$btn2dest = 'recipes.php';
+		$button2 = 'Recipes';
+	}
 	
 	if($from == 'inventory_list_empty'){
 		$format="";
@@ -41,6 +68,15 @@
 		$btn2dest = 'inventory.php';
 		$button2 = 'Back';
 	}
+	
+	if($from == 'recipe_list_empty'){
+		$format="";
+		$button1="Add Recipe";
+		$btn1dest='add_recipe.php';
+		$btn2dest = 'recipes.php';
+		$button2 = 'Back';
+	}
+	
 	
 	if($from == 'mod_bottle'){
 		if($err==0){

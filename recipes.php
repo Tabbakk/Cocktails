@@ -17,11 +17,11 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="col-sm-3 col-3"></div>
-					<button class="btn btn-lg btn-custom1 col-sm-3 col-6" type="button" onclick="">Create New</button>
+					<button class="btn btn-lg btn-custom1 col-sm-3 col-6" type="button" onclick="document.location.href='add_recipe.php'">Create New</button>
 					<div class="d-sm-none col-3"></div>
 		
 					<div class="d-sm-none col-3"></div>
-					<button class="btn btn-lg btn-custom1 col-sm-3 col-6" type="button" onclick="">View Recipes</button>
+					<button class="btn btn-lg btn-custom1 col-sm-3 col-6" type="button" onclick="document.location.href='recipe_list.php'">View Recipes</button>
 					<div class="col-sm-3 col-3"></div>
 
 					<div class="col-md-5 col-3"></div>
