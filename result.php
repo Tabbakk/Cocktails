@@ -1,6 +1,7 @@
 <?php
 	if(session_status() !== PHP_SESSION_ACTIVE) {session_start();}
-	if (!isset($_SESSION['id'])){header("location:includes/user_logout.php");exit();}
+	if (isset($_SESSION['from'])&&$_SESSION['from']=='insert_user'){}
+	else if (!isset($_SESSION['id'])){header("location:includes/user_logout.php");exit();}
 	
 	$from = $_SESSION['from'];
 	$err = $_SESSION['insertE'];
@@ -90,6 +91,20 @@
 		$btn2dest = 'inventory.php';
 		$button2 = 'Inventory';
 	}
+
+	if($from == 'insert_user'){
+		if($err==0){
+			$format="";
+			$button1="OK";
+		}
+		if($err==1){
+			$format=" text-danger";
+			$button1="Try Again";		
+		}
+		$btn1dest = 'add_bottle.php';
+		$btn2dest = '';
+		$button2 = '';
+	}
 	
 	
 ?>
@@ -107,6 +122,10 @@
 			<div class="row">
 				<div class="col-12">
 					<h2 class="errMessage mt-2 text-center<?php echo $format; ?>" id="noLoginMessage"><?php echo($msg); ?></h2>
+					
+				<?php 
+					if($from != 'insert_user'){ 
+				?>
 					<div class="col-sm-3 col-3"></div>
 					<button class="btn btn-lg btn-custom1 col-sm-3 col-6" type="button" onclick="document.location.href='<?php echo $btn1dest; ?>'"><?php echo $button1; ?></button>
 					<div class="d-sm-none col-3"></div>
@@ -114,7 +133,16 @@
 					<div class="d-sm-none col-3"></div>
 					<button class="btn btn-lg btn-custom2 col-sm-3 col-6" type="button" onclick="document.location.href='<?php echo $btn2dest ?>'"><?php echo $button2; ?></button>
 					<div class="col-sm-3 col-3"></div>
-
+				<?php } 
+					else{
+				?>
+					<div class="col-sm-4 col-3"></div>
+					<button class="btn btn-lg btn-custom1 col-sm-4 col-6" type="button" onclick="document.location.href='<?php echo $btn1dest; ?>'"><?php echo $button1; ?></button>
+					<div class="d-sm-4 col-3"></div>
+				
+				<?php 
+					}
+				?>
 			</div>	
 		</div> <!-- /container -->
 		

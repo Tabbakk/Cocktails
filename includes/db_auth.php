@@ -8,6 +8,7 @@
 	$_SESSION['login_p'] = $_POST['password'];
 	
 	$username = $mysqli->real_escape_string($_POST['username']);
+	$username = strtolower($username);
 	$password = $mysqli->real_escape_string($_POST['password']);
 	
 	$sql = 'Select id, username, password, email, auth from users where username = ?';

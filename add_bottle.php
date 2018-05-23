@@ -72,9 +72,9 @@
 							<div class="errorMessage text-danger col-12 d-block" id="errorPrice"></div>							
 							<label for="price" class="sr-only">Price</label>	
 							<div class="input-group col-12">
-								<input type="number" name="price" class="form-control currency" min="0.01" step="0.01" data-number-stepfactor="100" id="price" placeholder="0.00" onblur="evenNumber(2,'p');" required>
+								<input type="number" name="price" class="form-control currency padded" min="0.01" step="0.01" data-number-stepfactor="100" id="price" placeholder="0.00" onblur="evenNumber(2,'p');" required>
 								<div class="input-group-append">
-									<span class="input-group-text" id="basic-addon">$</span>
+									<span class="input-group-text dollar" id="basic-addon">$</span>
 								</div>
 							</div>
 							<small id="smbottleSize" class="form-text text-muted col-12 d-block">Bottle Price</small>
@@ -82,9 +82,9 @@
 							<div class="errorMessage text-danger col-12 d-block" id="errorSize"></div>							
 							<label for="size" class="sr-only">Size (ml)</label>
 							<div class="input-group col-12">
-								<input type="number" id="size" name="size" class="form-control" placeholder="Size (ml)" min="1" onblur="evenNumber(0,'s');" required>
+								<input type="number" id="size" name="size" class="form-control padded" placeholder="Size (ml)" min="1" onblur="evenNumber(0,'s');" required>
 								<div class="input-group-append">
-									<span class="input-group-text" id="basic-addon">ml</span>
+									<span class="input-group-text ml" id="basic-addon" >ml</span>
 								</div>
 							</div>
 							<small id="smbottleSize" class="form-text text-muted col-12 d-block">Bottle Size (ml)</small>

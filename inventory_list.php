@@ -300,7 +300,7 @@
 												<div class="col-8 d-inline">
 													<div class="input-group">
 														<div class="input-group-prepend">
-															<span class="input-group-text" id="basic-addon" style="padding-left:20px;">$</span>
+															<span class="input-group-text dollar" id="basic-addon">$</span>
 														</div>
 														<input type="number" name="price" class="form-control currency" min="0.01" step="0.01" data-number-stepfactor="100" id="price" placeholder="0.00" onblur="evenNumber(2,'p');" required>
 													</div>
@@ -319,7 +319,7 @@
 												<div class="col-8 d-inline">
 													<div class="input-group">
 														<div class="input-group-prepend">
-															<span class="input-group-text" id="basic-addon">ml</span>
+															<span class="input-group-text ml" id="basic-addon">ml</span>
 														</div>
 														<input type="number" id="size" name="size" class="form-control" placeholder="Size (ml)" min="1" onblur="evenNumber(0,'s');" required>
 													</div>

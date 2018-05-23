@@ -10,7 +10,7 @@
 	if (isset($_SESSION['login_e'])){
 		if($_SESSION['login_e']==='user'){$error="Username does not exist"; $code=1;}
 		if($_SESSION['login_e']==='pass'){$error="Incorrect password"; $code=2;}
-		if($_SESSION['login_e']==='auth'){$error="Username no longer active";}		
+		if($_SESSION['login_e']==='auth'){$error="This account is not active";}		
 	}	
 	$_SESSION = array();
 	if (ini_get("session.use_cookies")) {
@@ -40,6 +40,10 @@
 			document.getElementById('login').setAttribute('style','display:none;');
 			document.getElementById('initial').setAttribute('style','display:block;');
 			document.getElementById('noLoginMessage').innerHTML = "";
+			document.getElementById('username').classList.remove('is-invalid');
+			document.getElementById('username').value = "";
+			document.getElementById('password').classList.remove('is-invalid');
+			document.getElementById('password').value = "";
 		}
 		function submitForm() {
 			var f = document.getElementById('loginForm');
@@ -50,6 +54,21 @@
 				if(document.getElementById('password').value==""){document.getElementById("password").className += " is-invalid";}
 				document.getElementById('noLoginMessage').innerHTML = "Please insert Username & Password";
 			}
+		}
+		window.onload = function(){
+			var hidden=true;
+			document.getElementById('PWbutton').addEventListener("click", function(e){
+				if(hidden){
+					document.getElementById('PWimg').setAttribute('src','imgs/hidepw.png');
+					document.getElementById('password').setAttribute('type','text');
+					hidden=false;
+				}
+				else{
+					document.getElementById('PWimg').setAttribute('src','imgs/showpw.png');
+					document.getElementById('password').setAttribute('type','password');
+					hidden=true;
+				}
+			});			
 		}
 	</script>
   </head>
@@ -62,9 +81,14 @@
 						<h2 class="form-signin-heading">Sign in</h2>
 						<div class="noLogin text-danger" id="noLoginMessage"><?php echo($error); ?></div>
 						<label for="username" class="sr-only">Username</label>
-						<input type="text" id="username" name="username" class="form-control" placeholder="Username" <?php echo $user; ?> required>
-						<label for="password" class="sr-only">Password</label>
-						<input type="password" id="password" name="password" class="form-control" placeholder="Password" <?php echo $password; ?> required>
+						<input type="text" id="username" name="username" class="form-control text-center" placeholder="Username" <?php echo $user; ?> required>
+
+						<div class="input-group">
+							<input type="password" id="password" name="password" class="form-control text-center" placeholder="Password" <?php echo $password; ?> required>
+							<div class="input-group-append" id="PWbutton">
+								<span class="input-group-text p-0" id="basic-addon"><img class="PWimg" id="PWimg" src="imgs/showpw.png" ></span>
+							</div>
+						</div>
 						
 						<input id="errorCode" type="hidden" value="<?php echo($code);?>">
 						<input type="submit" style="display:none"/>
@@ -78,9 +102,12 @@
 				</div>
 				
 				<div class="col-12" id="initial" >
-					<div class="col-md-5 col-4"></div>
-					<button class="btn btn-lg btn-custom1 col-md-2 col-4" type="button" onclick="showLogin();">Login</button>
-					<div class="col-md-5 col-4"></div>
+					<div class="col-sm-3 col-3"></div>
+					<button class="btn btn-lg btn-custom1 col-sm-3 col-6" type="button" onclick="showLogin();">Login</button>
+					<div class="d-sm-none col-3"></div>
+					<div class="d-sm-none col-3"></div>
+					<button class="btn btn-lg btn-custom1 col-sm-3 col-6" type="button" onclick="document.location.href='new_user.php'">Sign Up</button>
+					<div class="col-sm-3 col-3"></div>
 				</div>	
 		</div>
 	</div>

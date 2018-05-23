@@ -31,8 +31,12 @@
 }
 
 .mainIMG.img-fluid{
-	max-width:50%;
+	max-width:100%;
 	height:auto;
+}
+
+.mainIMG.signUp{
+	max-width:320px;
 }
 
 .main .login .subButtons {
@@ -50,9 +54,40 @@
 
 }
 
-.login .form-control, .addBottleForm .input-group, .addRecipeForm .input-group{
+.login .form-control#username, .login .input-group, .addBottleForm .input-group, .addRecipeForm .input-group, .signupForm .form-control.noaddon, .signupForm .input-group, .input-group{
 	max-width: 300px;
 	margin: 10px auto;
+}
+.signupForm .input-group-append, .login .input-group-append{
+	width:32px;
+}
+.signupForm .form-control.addon,.login .form-control#password, .addBottleForm  .padded{
+	padding-left:42px;
+}
+.modBottleForm .form-control#price,.modBottleForm .form-control#size{
+	padding-right:42px;
+}
+.login .form-control#username, .login .form-control#password{
+	text-align:center;	
+}
+
+.addBottleForm .input-group-text, .modBottleForm .input-group-text  {
+	width:32px;
+}
+
+img.PWimg {
+	width:30px;
+	height:auto;
+}
+.signupForm #PWbutton,.login #PWbutton{
+	cursor:pointer;
+}
+
+.addBottleForm .input-group-text.ml , .modBottleForm .input-group-text.ml {
+	padding-left:6px;
+}
+.addBottleForm .input-group-text.dollar, .modBottleForm .input-group-text.dollar {
+	padding-left:10px;
 }
 
 .main .noLogin {
@@ -74,7 +109,7 @@
 	margin-top:-5px;
 }
 
-.addBottleForm .errorMessage, .addRecipeForm .errorMessage {
+.addBottleForm .errorMessage, .addRecipeForm .errorMessage, .signupForm .errorMessage {
 	margin-bottom:-5px;
 }
 
@@ -85,14 +120,6 @@
 .delModalList, .recipeModalList {
 	list-style:none;
 	margin-top:20px;
-}
-
-.modBottleForm .input-group-text {
-	width:50px; 
-}
-
-.modBottleForm .errorMessage, .modBottleForm .form-control#bottle {
-	padding-left:50px;
 }
 
 #bottlesList .bottomElem{

@@ -7,4 +7,5 @@
 	$_SESSION['authorized'] = true;
 	unset($_SESSION['login_u'],$_SESSION['login_p']);
 
-	echo '<script language=javascript>document.location.href="../main.php"</script>';
+	header("location:../main.php");
+	exit();
