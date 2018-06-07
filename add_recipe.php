@@ -37,6 +37,9 @@
 			}
 			
 			function moreFields() {
+				if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) ) {
+					$('#moreFields').blur();
+					}
 				var node;
 				counter++;
 				var errorAmount = "errorAmount"+counter;
@@ -71,17 +74,24 @@
 				});
 				
 				if (counter > 1) {
-					document.getElementById('removeField').disabled = false;
+					document.getElementById('removeField').classList.remove("disabled");
+					document.getElementById('RemoveBadge').classList.remove("text-muted");
+					document.getElementById('removeField').onclick = function(){remF();}
 				}
 			}
 
 			function remF() {
+			  if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) ) {
+				$('#removeField').blur();
+			  }
 			  var elem = document.getElementById('ingredient'+counter);
 			  elem.parentNode.removeChild(elem);
 			  counter--;
 			  if (counter < 2) {
-				document.getElementById('removeField').disabled = true;
-			  }	
+				document.getElementById('removeField').classList.add("disabled");
+					document.getElementById('RemoveBadge').classList.add("text-muted");
+				document.getElementById('removeField').onclick = function(){}
+			  }
 			}			
 			
 			
@@ -154,7 +164,7 @@
 						bottleNode = document.getElementById('bottle'+i);
 						if (bottleNode.value == "") {
 							bottleNode.classList.add("is-invalid");
-							createMessage.call(document.getElementById('errorBottle'+i), "bottle name");
+							createMessage.call(document.getElementById('errorBottle'+i), "");
 						}
 						amountNode = document.getElementById('amount'+i);
 						if (amountNode.value == "") {
@@ -306,10 +316,12 @@
 
 			
 			<div class="d-flex flex-row justify-content-center">
-				<div class="btn-group btn-group-toggle addRemove" data-toggle="buttons">
-					<button class="btn btn-sm btn-mini1 p-2" type="button" id="moreFields" onclick="moreFields();">+</button>
-					<button class="btn btn-sm btn-mini2 p-2" type="button" id="removeField" onclick="remF();" disabled="true">-</button>
+				<span class="badge buttonBadge text-right">Add</span>
+				<div class="btn-group addRemove">
+					<button class="btn btn-sm btn-outline-mini1 p-2" type="button" id="moreFields" onclick="moreFields();">+</button>
+					<button class="btn btn-sm btn-outline-mini2 p-2 disabled" type="button" id="removeField" onclick="" >-</button>
 				</div>			
+				<span id="RemoveBadge" class="badge buttonBadge text-left text-muted">Remove</span>
 			</div>
 
 			<div class="row">

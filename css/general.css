@@ -140,6 +140,12 @@ img.PWimg {
 	width:40px;
 }
 
+.buttonBadge {
+	width:100px;
+	margin-top:20px;
+}
+
+
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
@@ -211,7 +217,7 @@ input[type=number] {
 }
 
 
-
+/*
 .btn-mini1, .btn-mini1, .btn-mini1:hover, .btn-mini1:not(:disabled):not(.disabled).active,.btn-mini1:not(:disabled):not(.disabled):active,.show>.btn-mini1.dropdown-toggle {
 	color:#fff;
 	background-color:#9932CC;
@@ -227,6 +233,13 @@ input[type=number] {
 	border-color:#D8BFD8;
 	border-right:none;
 }
+*/
+.btn-outline-mini1{color:#9932CC;background-color:transparent;background-image:none;border-color:#9932CC}
+.btn-outline-mini1:hover{color:#fff;background-color:#9932CC;border-color:#9932CC}
+.btn-outline-mini1.focus,.btn-outline-mini1:focus{box-shadow:none; color:#9932CC;background-color:transparent;background-image:none;border-color:#9932CC }
+.btn-outline-mini1.disabled,.btn-outline-mini1:disabled{color:#D8BFD8;background-color:transparent}
+.btn-outline-mini1:not(:disabled):not(.disabled).active,.btn-outline-mini1:not(:disabled):not(.disabled):active,.show>.btn-outline-mini1.dropdown-toggle{color:#fff;background-color:#D8BFD8;border-color:#D8BFD8}
+.btn-outline-mini1:not(:disabled):not(.disabled).active:focus,.btn-outline-mini1:not(:disabled):not(.disabled):active:focus,.show>.btn-outline-mini1.dropdown-toggle:focus{box-shadow:none}
 
 .btn-mini2, .btn-mini2:hover, .btn-mini2:not(:disabled):not(.disabled).active,.btn-mini2:not(:disabled):not(.disabled):active,.show>.btn-mini2.dropdown-toggle{
 	color:#fff;
@@ -243,5 +256,12 @@ input[type=number] {
 	border-color:#FFCF9E;
 	border-left:none;
 }
+
+.btn-outline-mini2{color:#FFA500;background-color:transparent;background-image:none;border-color:#FFA500}
+.btn-outline-mini2:hover{color:#fff;background-color:#FFA500;border-color:#FFA500}
+.btn-outline-mini2.focus,.btn-outline-mini2:focus{box-shadow:none; color:#FFA500;background-color:transparent;background-image:none;border-color:#FFA500}
+.btn-outline-mini2.disabled,.btn-outline-mini2:disabled{color:#FFCF9E;background-color:transparent}
+.btn-outline-mini2:not(:disabled):not(.disabled).active,.btn-outline-mini2:not(:disabled):not(.disabled):active,.show>.btn-outline-mini2.dropdown-toggle{color:#fff;background-color:#FFCF9E;border-color:#FFCF9E}
+.btn-outline-mini2:not(:disabled):not(.disabled).active:focus,.btn-outline-mini2:not(:disabled):not(.disabled):active:focus,.show>.btn-outline-mini2.dropdown-toggle:focus{box-shadow:none}
 
 /*##########################################################################################################*/

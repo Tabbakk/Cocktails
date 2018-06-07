@@ -206,7 +206,9 @@
 				var lastrow = myrows[myrows.length -1];
 				var bottomcells = lastrow.getElementsByTagName("td");
 				for (i = 0; i < bottomcells.length; i++) {
-					bottomcells[i].className += " border-bottom";
+					if(i!=0 && i!=bottomcells.length-1){
+						bottomcells[i].className += " border-bottom";
+					}
 				}
 			}
 			
@@ -217,11 +219,12 @@
 			<div class="row">
 				<div class="col-12">
 					<h2>Recipes</h2>
-					<div class="col-sm-6 col-12 mx-auto">
+					<div class="col-12">
 						<table class="table table-striped text-center" id="RecipesList">
 							<thead>
 								<tr>
-								  <th scope="col">Recipe</th>
+								  <th class="d-sm-block d-none" style="visibility:hidden; border:none;"></th>
+								  <th scope="col" class="table-bordered">Recipe</th>
 								  <th scope="col" class="table-bordered">Cost</th>
 								</tr>
 							</thead>
@@ -229,12 +232,20 @@
 					<?php
 						$i = 0;
 						foreach ($recipes as $r){
-					?>		
-								<tr onclick="showModal('<?php echo $r['id']; ?>');">
-									<td class="aligned" id="name<?php echo $i ?>" ><?php echo stripslashes($r['name']); ?></td>
+					?>	
+								<tr class="d-table-row d-sm-none" onclick="showModal('<?php echo $r['id']; ?>');">
+									<td class="table-bordered aligned" id="name<?php echo $i ?>"><?php echo stripslashes($r['name']); ?></td>		
 									<td class="table-bordered aligned" id="size<?php echo $i ?>" ><?php echo $r['cost']; ?></td>
 								</tr>
-
+								
+								<tr></tr>
+					
+								<tr class="d-sm-table-row d-none">
+									<td style="border:none; background:#fff; text-align:right"><button class="btn btn-sm btn-outline-mini1 m-0" type="button" style="width:auto;" onclick="showModal('<?php echo $r['id']; ?>');">view</button></td>
+									<td class="table-bordered aligned" id="name<?php echo $i ?>"><?php echo stripslashes($r['name']); ?></td>		
+									<td class="table-bordered aligned" id="size<?php echo $i ?>" ><?php echo $r['cost']; ?></td>
+									<td style="visibility:hidden; border:none; background:#fff;"><button class="btn btn-sm btn-outline-mini1 m-0" type="button" style="width:auto;" onclick="showModal('<?php echo $r['id']; ?>');">view</button></td>
+								</tr>
 					<?php
 							$i++;
 						}

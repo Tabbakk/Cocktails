@@ -1,4 +1,5 @@
 <?php
+	if(session_status() !== PHP_SESSION_ACTIVE) {session_start();}
 	if(isset($_POST['ids'])){
 		include 'includes/db_connection.php';
 		$userIDs = $_POST['ids'];
